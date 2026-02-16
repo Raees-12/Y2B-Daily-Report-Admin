@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yes2Broker | Performance Dashboard</title>
+
+  <link rel="icon" type="image/jpeg" href="Assets/fav.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+
+      <!-- Logo LEFT -->
+      <div class="brand">
+        <img src="Assets/logo.webp" alt="Yes2Broker Logo" />
+      </div>
+
+      <!-- Right Controls -->
+      <div class="header-right">
+
+        <!-- Filters -->
+        <div class="date-filter">
+          <select id="quickFilter">
+            <option value="">All Time</option>
+            <option value="today" selected>Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+
+          <div class="custom-dates">
+            <input type="date" id="startDate">
+            <span class="to-text">to</span>
+            <input type="date" id="endDate">
+          </div>
+
+
+          <select id="nameFilter">
+            <option value="">All Members</option>
+          </select>
+        </div>
+
+        <!-- Leaderboard Button -->
+        <div class="nav-actions">
+          <button id="resetFilters" class="nav-btn secondary">Reset</button>
+          <button id="openLeaderboard" class="nav-btn">Leaderboard</button>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <!-- Summary Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Leads</h3>
+        <p id="leads">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Calls</h3>
+        <p id="calls">0</p>
+      </div>
+      <div class="card">
+        <h3>Positive Calls</h3>
+        <p id="positive">0</p>
+      </div>
+      <div class="card">
+        <h3>Site Visits Scheduled</h3>
+        <p id="scheduled">0</p>
+      </div>
+      <div class="card">
+        <h3>Site Visits Done</h3>
+        <p id="done">0</p>
+      </div>
+      <div class="card">
+        <h3>Tokens</h3>
+        <p id="tokens">0</p>
+      </div>
+      <div class="card">
+        <h3>Site Visit Conversion %</h3>
+        <p id="visitConv">0%</p>
+      </div>
+      <div class="card">
+        <h3>Closure Conversion %</h3>
+        <p id="closeConv">0%</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Leads</th>
+            <th>Calls</th>
+            <th>Positive</th>
+            <th>Scheduled</th>
+            <th>Done</th>
+            <th>Tokens</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td colspan="8">Loading data...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Leaderboard Modal -->
+  <div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeLeaderboard">&times;</span>
+      <h2>Team Leaderboard</h2>
+      <div class="leaderboard-wrapper">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Calls</th>
+              <th>Positive</th>
+              <th>Scheduled</th>
+              <th>Done</th>
+              <th>Tokens</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
