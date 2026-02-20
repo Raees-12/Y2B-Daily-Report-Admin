@@ -263,7 +263,7 @@ function updateCards(data, yesterdayData = []) {
   const tokens = sum("tokens");
 
   const visitConv = calls ? ((done / calls) * 100).toFixed(1) : "0";
-  const closeConv = calls ? ((tokens / calls) * 100).toFixed(1) : "0";
+  const closeConv = done ? ((tokens / done) * 100).toFixed(1) : "0";
 
   const visitEl = document.getElementById("visitConv");
   const closeEl = document.getElementById("closeConv");
@@ -325,7 +325,7 @@ function updateLeaderboard(data) {
       name,
       ...v,
       score,
-      conversion: v.calls ? (v.tokens / v.calls) * 100 : 0
+      conversion: v.done ? (v.tokens / v.done) * 100 : 0
     };
   });
 
